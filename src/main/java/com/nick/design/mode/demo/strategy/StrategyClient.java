@@ -17,7 +17,6 @@ public class StrategyClient {
 
     Shopping shopping3 = new Shopping("大疆无人机", 2366.0, new Dis9Discount());
     shopping3.calculate();
-
   }
 
 }
