@@ -1,10 +1,12 @@
 package com.nick.design.mode.demo.chain;
 
 /**
+ *
  * @author zhongwei
  * @date 2019-08-30
  * @time: 15:53
  * @description:
+ *
  */
 public class VicePresidentApprover extends Approver {
 
