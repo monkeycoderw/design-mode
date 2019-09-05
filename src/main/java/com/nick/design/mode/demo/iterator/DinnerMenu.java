@@ -20,16 +20,41 @@ public class DinnerMenu {
 
   public DinnerMenu() {
     menuItems = new MenuItem[MAX_ITEMS];
+    addItem("vegetable Blt", "bacon&lettuce&tomato&cabbage", true, 3.58f);
+    addItem("Blt", "bacon&lettuce&tomato", false, 3.00f);
+    addItem("bean soup", "bean&potato salad", true, 3.28f);
+    addItem("hotdog", "onions&cheese&bread", false, 3.05f);
   }
 
   private void addItem(String name, String desc, boolean vegetable, float price) {
     if (index < MAX_ITEMS) {
-      menuItems[index] = new MenuItem(name, desc, vegetable, price);
+      menuItems[index++] = new MenuItem(name, desc, vegetable, price);
     } else {
       System.err.println("Sorry, The menu ");
     }
-
   }
 
+  public Iterator getIterator() {
+    return new DinnerIterator();
+  }
+
+  class DinnerIterator implements Iterator {
+
+    private int position;
+
+    @Override
+    public boolean hasNext() {
+      if (position < index) {
+        return true;
+      }
+      return false;
+    }
+
+    @Override
+    public MenuItem next(){
+      return menuItems[position++];
+    }
+
+  }
 
 }
